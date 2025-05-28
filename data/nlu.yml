@@ -1,0 +1,44 @@
+version: '3.1'
+
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+
+- intent: choose_destination
+  examples: |
+    - Thailand
+    - I want to go to Thailand
+    - Singapore
+    - I'd like Singapore
+
+- intent: choose_cities
+  examples: |
+    - Bangkok, Pattaya
+    - Phuket
+    - Bangkok, Phuket, Krabi
+    - Pattaya
+
+- intent: inform
+  examples: |
+    - 2
+    - 3
+    - 5
+
+- intent: enter_pax
+  examples: |
+    - 2
+    - 4
+    - 6
+
+- intent: enter_date
+  examples: |
+    - 12 Dec 2023
+    - 01 Jan 2024
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
