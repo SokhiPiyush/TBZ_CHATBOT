@@ -1,0 +1,82 @@
+version: '3.1'
+intents:
+  - greet
+  - choose_destination
+  - choose_cities
+  - inform
+  - enter_pax
+  - enter_date
+  - goodbye
+
+entities:
+  - destination
+  - city
+
+slots:
+  destination_country:
+    type: text
+    influence_conversation: true
+  cities:
+    type: list
+    influence_conversation: true
+  nights_Bangkok:
+    type: float
+  nights_Pattaya:
+    type: float
+  nights_Phuket:
+    type: float
+  nights_Krabi:
+    type: float
+  pax:
+    type: float
+  travel_date:
+    type: text
+
+responses:
+  utter_greet:
+    - text: "Welcome to TravelBullz. Select your Destination Country: Thailand or Singapore"
+      buttons:
+        - title: "Thailand"
+          payload: "Thailand"
+        - title: "Singapore"
+          payload: "Singapore"
+  utter_ask_cities:
+    - text: "Select your Cities: Bangkok, Pattaya, Phuket, Krabi (you can select multiple separated by comma)"
+  utter_ask_nights_Bangkok:
+    - text: "Enter number of nights for Bangkok (1 to 10):"
+  utter_ask_nights_Pattaya:
+    - text: "Enter number of nights for Pattaya (1 to 10):"
+  utter_ask_nights_Phuket:
+    - text: "Enter number of nights for Phuket (1 to 10):"
+  utter_ask_nights_Krabi:
+    - text: "Enter number of nights for Krabi (1 to 10):"
+  utter_ask_pax:
+    - text: "Enter number of Pax (1 to 10):"
+  utter_ask_travel_date:
+    - text: "Select Travel Date (format: DD MMM YYYY)"
+  utter_goodbye:
+    - text: "Thank you. We will suggest suitable packages shortly."
+
+forms:
+  travel_form:
+    required_slots:
+      destination_country:
+      - type: from_text
+      cities:
+      - type: from_text
+      nights_Bangkok:
+      - type: from_text
+      nights_Pattaya:
+      - type: from_text
+      nights_Phuket:
+      - type: from_text
+      nights_Krabi:
+      - type: from_text
+      pax:
+      - type: from_text
+      travel_date:
+      - type: from_text
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
